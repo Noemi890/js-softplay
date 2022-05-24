@@ -26,7 +26,7 @@ let children = 0
 //
 
 const peopleEntering = (numAdult, numChild) => {
-  
+
   if (numChild <= numAdult) {
     adults += numAdult;
     children += numChild;
@@ -38,12 +38,12 @@ const peopleEntering = (numAdult, numChild) => {
 
 const peopleLeaving = (numAdult, numChild) => {
 
-  const leavingAdults = (numAdult !== 0 && numAdult <= adults);
-  const leavingChildren = (numChild <= numAdult && numChild <= children);
+  const leavingAdultsConditions = (numAdult !== 0 && numAdult <= adults);
+  const leavingChildrenConditions = (numChild <= numAdult && numChild <= children);
   const newAdults = adults - numAdult;
   const newChild = children - numChild;
 
-  if (leavingAdults && leavingChildren && newAdults >= newChild) {
+  if (leavingAdultsConditions && leavingChildrenConditions && newAdults >= newChild) {
     adults -= numAdult;
     children -= numChild;
     return true;
