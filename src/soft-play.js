@@ -17,6 +17,8 @@ let children = 0
 // 2-
 // INPUT: Adults and children leaving the softplay
 // OUTPUT: How many are still inside
+// 3- 
+// OUTPUT: Object with adults and children still in the playground
 
 // Need to write two functions, one for children and adults entering, one for children and adults leaving
 // Take in consideration that for entering a child needs to be accompanied with AT LEAST one adult
