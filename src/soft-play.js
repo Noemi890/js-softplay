@@ -23,10 +23,10 @@ let children = 0
 // Take in consideration that for leaving a child needs to be accompanied with AT LEAST one adult =>
 // The number of childs remaining NEEDS TO BE LESS or EQUAL to the adults =>
 // The leaving party IS NOT GREATER than the people inside.
-// 
-const occupancyObj = { adults: 0, children: 0};
+//
 
-function peopleEntering (numAdult, numChild) {
+const peopleEntering = (numAdult, numChild) => {
+  
   if (numChild <= numAdult) {
     adults += numAdult;
     children += numChild;
@@ -36,10 +36,14 @@ function peopleEntering (numAdult, numChild) {
   return false;
 }
 
-function peopleLeaving(numAdult, numChild) {
+const peopleLeaving = (numAdult, numChild) => {
+
+  const leavingAdults = (numAdult !== 0 && numAdult <= adults);
+  const leavingChildren = (numChild <= numAdult && numChild <= children);
   const newAdults = adults - numAdult;
   const newChild = children - numChild;
-  if (numAdult !== 0 && numChild <= numAdult && numChild <= children && numAdult <= adults && newAdults >= newChild) {
+
+  if (leavingAdults && leavingChildren && newAdults >= newChild) {
     adults -= numAdult;
     children -= numChild;
     return true;
@@ -48,10 +52,12 @@ function peopleLeaving(numAdult, numChild) {
   return false;
 }
 
-function occupancy() {
+const occupancy = () => {
 
-  occupancyObj.adults = adults;
-  occupancyObj.children = children;
+  const occupancyObj = { 
+    adults: adults, 
+    children: children
+  }
 
   return occupancyObj;
 }
